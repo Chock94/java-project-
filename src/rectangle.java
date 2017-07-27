@@ -11,7 +11,7 @@ public class Rectangle {
 	 return length * width;
 	}
 
-	public int get Perimeter() {
+	public int getPerimeter() {
 	 return 2 * (length + width);
 	}
 } 

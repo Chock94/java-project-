@@ -30,7 +30,7 @@ pipeline {
        	  }
 	  stage("Running on CentOS") {
 	    agent {
-	      label 'CentOS'
+	      label 'apache'
 	    }
 	    steps {
 	      sh "wget http://chock944.mylabserver.com/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"

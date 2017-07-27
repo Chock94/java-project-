@@ -1,5 +1,7 @@
 pipeline {
-	agent any 
+	agent {
+	  label 'master'
+	}
 	
 	stages {
 	  stage('Unit Tests') {
@@ -13,7 +15,12 @@ pipeline {
 	      sh 'ant -f build.xml -v'
 	    } 
 	  }
-       	}
+	  stage('deploy') {
+	    steps {
+	      sh "cp dist/rectangles_${env.BUILD_NUMBER}.jar /var/www/html/rectangle/all/
+	    }
+       	  }
+	}
 	post {
 	  always {
 	    archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true

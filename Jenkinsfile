@@ -101,15 +101,15 @@ pipeline {
               }
             }
 	  }
-	  post {
-	    failure {
-	      emailext{
-		subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!", 
-		body: """<p>'${env.JOB_NAME} [${env.BUILDNUMBER}]' Failed!":</p>
-		<p>Check console output ar &QOUT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
-		to: "teran.hotcackes@gmail.com"
-	      }
-	    }
-	  }
 	}
+	post {
+	  failure {
+           emailext(
+	     subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!", 
+     	     body: """<p>'${env.JOB_NAME} [${env.BUILDNUMBER}]' Failed!":</p>
+  	<p>Check console output ar &QOUT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
+	     to: "teran.hotcackes@gmail.com"
+	     }
+	   }
+	 }
       }

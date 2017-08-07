@@ -10,7 +10,7 @@ pipeline {
 	    agent any
 	    
 	      steps {
-	      sayhello 'Awesome'
+	      sayHello 'Awesome'
 	      }
 	  }
 	  stage('Unit Tests') {
